@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Móvil - Dayloplas IPM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .demo-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .phone-frame {
+            background: #333;
+            padding: 20px 10px;
+            border-radius: 25px;
+        }
+        
+        .screen {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 700px;
+            overflow-y: scroll;
+            position: relative;
+        }
+        
+        .mobile-header {
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.85) 0%, rgba(240, 248, 255, 0.95) 50%);
+            padding: 20px 15px;
+            text-align: center;
+            position: relative;
+            min-height: 300px;
+        }
+        
+        .hamburger-menu {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(26, 79, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .logos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 60px;
+            background: #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666;
+        }
+        
+        .mobile-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .mobile-subtitle {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #1a4fff, #4a90e2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: none;
+            margin-top: 15px;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        .features-section {
+            padding: 20px 15px;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .feature-image {
+            height: 120px;
+            background: linear-gradient(45deg, #87CEEB, #B0E0E6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .feature-content {
+            padding: 15px;
+        }
+        
+        .feature-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .feature-description {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        
+        .carousel-section {
+            padding: 20px 15px;
+            background: #f8f9fa;
+        }
+        
+        .carousel-title {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .mobile-carousel {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .carousel-card {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-image {
+            height: 140px;
+            background: #f0f8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .carousel-content {
+            padding: 15px;
+        }
+        
+        .carousel-card-title {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .carousel-card-text {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        
+        .ver-mas-btn {
+            background: #1fa7ff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            width: 100%;
+        }
+        
+        .form-section {
+            padding: 20px 15px;
+            background: #f7f7f7;
+        }
+        
+        .form-title {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .mobile-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            width: 100%;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        
+        .scroll-indicator {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #666;
+            background: rgba(26, 79, 255, 0.1);
+        }
+        
+        .demo-info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .demo-container {
+            animation: slideIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-info">
+        📱 DEMO: Vista Móvil - Dayloplas IPM
+    </div>
+    
+    <div class="demo-container">
+        <div class="phone-frame">
+            <div class="screen">
+                <!-- Header Móvil -->
+                <div class="mobile-header">
+                    <div class="hamburger-menu">☰</div>
+                    <div class="logos">
+                        <div class="logo">DAYLOPLAS</div>
+                        <div class="logo">I.P.M.</div>
+                    </div>
+                    <h1 class="mobile-title">Dayloplas-I.P.M. Mendoza</h1>
+                    <p class="mobile-subtitle">"Una institución pensada para quienes desean destacarse en el mundo de la estética, la podología y el bienestar."</p>
+                    <button class="cta-button">🚀 Tu Futuro empieza aquí</button>
+                </div>
+                
+                <!-- Features Section -->
+                <div class="features-section">
+                    <div class="feature-card">
+                        <div class="feature-image">CURSOS</div>
+                        <div class="feature-content">
+                            <div class="feature-title">CURSOS</div>
+                            <div class="feature-description">Formación profesional completa en estética y podología</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-image">TALLERES</div>
+                        <div class="feature-content">
+                            <div class="feature-title">TALLERES</div>
+                            <div class="feature-description">Workshops especializados para perfeccionar técnicas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-image">JORNADAS</div>
+                        <div class="feature-content">
+                            <div class="feature-title">JORNADAS</div>
+                            <div class="feature-description">Eventos formativos con expertos del sector</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Section -->
+                <div class="carousel-section">
+                    <h2 class="carousel-title">CURSOS DISPONIBLES</h2>
+                    <div class="scroll-indicator">👈 Desliza para ver más</div>
+                    <div class="mobile-carousel">
+                        <div class="carousel-card">
+                            <div class="carousel-image">Peluquería Profesional</div>
+                            <div class="carousel-content">
+                                <div class="carousel-card-title">Curso de Peluquería</div>
+                                <div class="carousel-card-text">Técnicas modernas de corte, peinado y tratamientos capilares</div>
+                                <button class="ver-mas-btn">Ver más</button>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-card">
+                            <div class="carousel-image">Cosmetología Avanzada</div>
+                            <div class="carousel-content">
+                                <div class="carousel-card-title">Curso de Cosmetología</div>
+                                <div class="carousel-card-text">Tratamientos faciales y corporales profesionales</div>
+                                <button class="ver-mas-btn">Ver más</button>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-card">
+                            <div class="carousel-image">Podología Especializada</div>
+                            <div class="carousel-content">
+                                <div class="carousel-card-title">Auxiliar de Podología</div>
+                                <div class="carousel-card-text">Cuidado integral del pie y tratamientos especializados</div>
+                                <button class="ver-mas-btn">Ver más</button>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-card">
+                            <div class="carousel-image">Extensión de Pestañas</div>
+                            <div class="carousel-content">
+                                <div class="carousel-card-title">Extensión de Pestañas</div>
+                                <div class="carousel-card-text">Técnicas profesionales para realzar la mirada</div>
+                                <button class="ver-mas-btn">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Form Section -->
+                <div class="form-section">
+                    <h3 class="form-title">¿Te interesa alguna formación?</h3>
+                    <div class="mobile-form">
+                        <input type="text" class="form-input" placeholder="Nombre completo *">
+                        <input type="tel" class="form-input" placeholder="Teléfono *">
+                        <input type="text" class="form-input" placeholder="¿Qué formación te interesa? *">
+                        <button class="whatsapp-btn">📱 Enviar consulta por WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simular interacciones móviles
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            alert('🍔 Menú hamburguesa activado!\n\nEn la versión real se despliega un menú completo con todas las opciones de navegación.');
+        });
+        
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            alert('🚀 Botón principal!\n\nTe llevaría a la sección de cursos para conocer la oferta educativa.');
+        });
+        
+        document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+            alert('📱 WhatsApp!\n\nEn la versión real se abre WhatsApp con el mensaje pre-completado para hacer la consulta.');
+        });
+        
+        // Simular scroll del carousel
+        const carousel = document.querySelector('.mobile-carousel');
+        let isScrolling = false;
+        
+        carousel.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                console.log('📱 Carousel scroll detectado - funcionalidad táctil activa');
+                isScrolling = true;
+                setTimeout(() => isScrolling = false, 100);
+            }
+        });
+    </script>
+</body>
+</html>

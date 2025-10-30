@@ -1,0 +1,483 @@
+
+            
+            .formacion-section {
+				text-align: center;
+				padding: 4rem 2rem;
+			}
+
+			.formacion-header {
+				max-width: 1440px;
+				margin: 0 auto 3rem;
+				text-align: center;
+				padding: 0 2rem;
+			}
+
+			.formacion-header h2 {
+				font-size: 2.8rem;
+				margin-bottom: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+
+			.formacion-header p {
+				font-size: 1.2rem;
+				color: #555;
+			}
+
+			.formacion-header img {
+				display: block !important;
+				width: 100% !important;
+				max-width: 800px !important;
+				height: 400px !important;
+				object-fit: cover !important;
+				margin: 0 auto 1rem auto !important;
+				border-radius: 8px !important;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+			}
+
+			/* Selector más específico */
+			section.formacion-section .formacion-header img {
+				display: block !important;
+				width: 100% !important;
+				max-width: 800px !important;
+				height: 400px !important;
+				object-fit: cover !important;
+				margin: 0 auto 1rem auto !important;
+				border-radius: 8px !important;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+			}
+
+			/* Estilo de emergencia - muy específico */
+			.wrapper.style3 .formacion-header img,
+			section[id] .formacion-header img {
+				display: block !important;
+				width: 100% !important;
+				max-width: 800px !important;
+				height: 400px !important;
+				object-fit: cover !important;
+				margin: 0 auto 1rem auto !important;
+				border-radius: 8px !important;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+				opacity: 1 !important;
+				visibility: visible !important;
+				min-height: 400px !important;
+			}
+
+			/* Responsivo para móviles */
+			@media screen and (max-width: 736px) {
+				.formacion-header img {
+					max-width: 100% !important;
+					height: 250px !important;
+					margin: 0 auto 1rem auto !important;
+				}
+				
+				.wrapper.style3 .formacion-header img,
+				section[id] .formacion-header img {
+					height: 250px !important;
+					min-height: 250px !important;
+				}
+				
+				.formacion-header h2 {
+					font-size: 2em !important;
+					margin-bottom: 1rem;
+					padding: 0 15px;
+				}
+				
+				.formacion-header p {
+					font-size: 1em !important;
+					padding: 0 15px;
+					margin-bottom: 1.5em;
+				}
+			}
+
+			/* Responsive adicional para pantallas muy pequeñas */
+			@media screen and (max-width: 480px) {
+				.formacion-header img {
+					height: 200px !important;
+					min-height: 200px !important;
+				}
+				
+				.formacion-header h2 {
+					font-size: 1.6em !important;
+				}
+			}
+
+			/* Carrusel y Cards */
+			.carousel {
+				width: 100%;
+				padding: 10px; 
+				overflow-x: hidden;
+				position: relative;
+			}
+
+			.carousel .reel {
+				display: flex;
+				gap: .5rem;
+				padding-left: 1rem;
+				padding-right: 1rem;
+				overflow-x: auto;
+				scroll-snap-type: x mandatory;
+				scroll-padding: 2rem;
+				margin: 0 auto;
+				/* background-color: #f0f9f1; */
+				box-sizing: border-box;
+			}
+
+			.carousel .reel article {
+				flex: 0 0 320px;
+				background: #fff;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+				scroll-snap-align: start;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				transition: transform 0.3s ease;
+				position: relative;
+			}
+
+			/* Responsive para carousel */
+			@media screen and (max-width: 768px) {
+				.carousel {
+					margin: 0 -15px;
+					padding: 20px 0;
+				}
+				
+				.carousel .reel {
+					padding: 0 15px;
+					gap: 15px;
+					-webkit-overflow-scrolling: touch;
+					scroll-snap-type: x mandatory;
+				}
+				
+				.carousel .reel article {
+					flex: 0 0 280px;
+					margin-right: 0;
+					min-height: 380px;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.carousel .reel article {
+					flex: 0 0 260px;
+					min-height: 360px;
+				}
+			}
+
+			.carousel .reel article:hover {
+				transform: scale(0.95);
+				transition: transform 0.9s easeout;
+				background-color: rgba(255, 0, 0, 0.04);
+				box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+				-webkit-transition: transform 0.9s easeout;
+				-moz-transition: transform 0.9s easeout;
+				-ms-transition: transform 0.9s easeout;
+				-o-transition: transform 0.9s easeout;
+}
+
+			.carousel .reel article img {
+				width: 100%;
+				height: 100%;
+				min-height: 200px;
+				max-height: 280px;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 10px 10px 0 0;
+				display: block;
+				background: #f8f8f8;
+			}
+
+			.carousel .reel article .image {
+				background: #f8f8f8;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 250px;
+				max-height: 300px;
+				border-radius: 10px 10px 0 0;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.carousel .reel article .image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+
+			.carousel .reel article h3 {
+				font-size: 1.3rem;
+				margin: -10px 0 0.5rem 0;
+			}
+
+			.carousel .reel article p {
+				color: #444;
+				min-height: 60px;
+				margin-bottom: 1rem;
+				margin-top: 0;
+			}
+
+			.carousel .reel article .button {
+				background-color: #e06c60;
+				color: white;
+				padding: 0.5rem 1.2rem;
+				border-radius: 4px;
+				text-decoration: none;
+			}
+
+			.carousel .reel article .button:hover {
+				transform: scale(0.95);
+				transition: transform 0.5s easeout;
+				background-color: #d05a4e;
+				-webkit-transition: transform 0.5s easeout;
+				-moz-transition: transform 0.5s easeout;
+				-ms-transition: transform 0.5s easeout;
+				-o-transition: transform 0.5s easeout;
+				-webkit-transform: scale(0.95);
+				-moz-transform: scale(0.95);
+				-ms-transform: scale(0.95);
+				-o-transform: scale(0.95);
+}
+			
+
+
+
+
+
+
+            #header .inner {
+				text-align: center;
+				animation: fadeInDown 2s ease-out;
+			}
+
+			@keyframes fadeInDown {
+				0% { opacity: 0; transform: translateY(-30px); }
+				100% { opacity: 1; transform: translateY(0); }
+			}
+
+			#header .logos {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin-bottom: 1rem;
+			}
+
+			#header .logos img {
+				height: 120px;
+				object-fit: contain;
+				filter: drop-shadow(0 0 10px #0002);
+			}
+
+			#header h1 {
+				color: #fff;
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+			}
+
+			#header p {
+				color: #555;
+				font-size: 1.2rem;
+				margin: 0 auto 2rem;
+				max-width: 600px;
+				text-shadow: 0 1px 3px rgba(255, 255, 255,0.8);
+			}
+			 /* Fondo animado */
+			#header {
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				transition: background-image 1s ease-in-out;
+				min-height: 70vh;
+				max-height: 80vh;
+				position: relative;
+				color: white;
+			}
+
+			/* Logos */
+			#header .logos {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin-bottom: 1rem;
+			}
+			/* #header .logo {
+				height: 150px;
+				object-fit: contain;
+				animation-iteration-count: 1 !important;
+			} */
+
+			/* Animación entrada (usa animate.css si lo tenés cargado) */
+			.animate__animated {
+				animation-duration: 1.5s;
+				animation-fill-mode: both;
+			}
+
+			/* nimación segunda de los logos*/
+			.logo {
+				width: 150px;
+				margin: 0 10px;
+				opacity: 0;
+				transform: scale(1);
+				animation: fadeIn 0.6s ease-out forwards ;
+			}
+			.logo:nth-child(2) {
+				animation-delay: 0.2s;
+				/* animation: pulseOnce 0.35s ease-out forwards !important; */
+			}
+
+
+		
+			/* Efecto de escalado (zoom) */
+			@keyframes pulseOnce {
+				0%   { transform: scale(1); }
+				25%   { transform: scale(1.2); }
+				50%  { transform: scale(1.3); }
+				75%   { transform: scale(1.2); }
+				100% { transform: scale(1); }
+			}
+	/* Animación de entrada */
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: scale(.8);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+			
+			.pulse-once {
+				animation: pulseOnce 0.35s ease-out forwards !important;
+			}
+
+			.logo:hover {
+				transform: scale(1.1);
+				transition: transform 0.3s ease;
+			}
+
+
+
+
+
+
+
+/* ========================================
+   RESPONSIVE ADICIONAL PARA NATY.CSS
+======================================== */
+
+/* Header responsive mejorado */
+@media screen and (max-width: 768px) {
+#header {
+min-height: 60vh !important;
+padding: 20px 0;
+}
+
+#header .inner {
+padding: 20px 15px;
+}
+
+.logo-container {
+flex-direction: column;
+gap: 10px;
+margin: 1rem auto 0.5rem;
+}
+
+.logo {
+width: 100px !important;
+height: auto;
+}
+
+#header h1 {
+font-size: 1.8em !important;
+line-height: 1.2;
+margin-bottom: 1rem;
+}
+
+#header p {
+font-size: 1em !important;
+line-height: 1.4;
+padding: 0 15px;
+}
+}
+
+/* Animaciones optimizadas para móvil */
+@media screen and (max-width: 768px) {
+.carousel .reel article:hover {
+transform: none !important;
+}
+
+.logo:hover {
+transform: none !important;
+}
+
+/* Simplificar animaciones en móvil */
+*, *::before, *::after {
+animation-duration: 0.3s !important;
+transition-duration: 0.3s !important;
+}
+}
+
+/* Mejoras para imagen y texto del carousel */
+@media screen and (max-width: 768px) {
+.carousel .reel article img {
+height: 180px !important;
+min-height: 180px !important;
+max-height: 180px !important;
+object-fit: contain !important;
+padding: 15px !important;
+}
+
+.carousel .reel article h3 {
+font-size: 1.1em !important;
+margin: 15px 10px 10px;
+line-height: 1.3;
+}
+
+.carousel .reel article p {
+font-size: 0.9em !important;
+margin: 0 10px 15px;
+line-height: 1.4;
+min-height: 50px;
+}
+
+.carousel .reel article .button {
+font-size: 0.9em !important;
+padding: 8px 20px !important;
+margin: 10px auto 15px !important;
+width: fit-content;
+}
+}
+
+/* Espaciado mejorado para secciones */
+@media screen and (max-width: 768px) {
+.formacion-section {
+padding: 2rem 1rem !important;
+text-align: center;
+}
+
+.formacion-header {
+padding: 0 1rem;
+margin-bottom: 2rem;
+}
+}
+
+/* Botones responsive */
+@media screen and (max-width: 768px) {
+.boton-principal {
+font-size: 1em !important;
+padding: 12px 25px !important;
+margin: 10px 0;
+width: auto;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+}

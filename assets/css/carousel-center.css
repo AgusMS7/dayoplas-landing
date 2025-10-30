@@ -1,0 +1,11 @@
+#cursos .carousel .reel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#cursos .carousel .reel article{
+  width: 25vw;
+  min-width: 300px;
+}

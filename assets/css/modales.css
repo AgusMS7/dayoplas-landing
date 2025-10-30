@@ -1,0 +1,138 @@
+/* =================================
+   ESTILOS PARA MODALES GLOBALES
+   ================================= */
+
+/* Modal de Contacto */
+body.contacto-activo::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    pointer-events: none;
+}
+
+body.contacto-activo #contacto {
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#contacto {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ESTILOS PARA EL MODAL NOSOTROS */
+.modal-nosotros {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-nosotros.show {
+    opacity: 1;
+}
+
+.modal-nosotros-content {
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal-nosotros.show .modal-nosotros-content {
+    transform: translateY(0);
+}
+
+.modal-nosotros-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.modal-nosotros-close {
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-nosotros-close:hover {
+    color: #ff6b6b;
+}
+
+.instituto-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.instituto-logos img {
+    height: 70px;
+    filter: brightness(1.1);
+}
+
+.modal-nosotros-body {
+    padding: 2.5rem;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-nosotros-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+
+    .modal-nosotros-header,
+    .modal-nosotros-body {
+        padding: 1.5rem;
+    }
+
+    .instituto-logos {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .instituto-logos img {
+        height: 50px;
+    }
+}
+
+/* =================================
+   Tipografía y utilidades del modal
+================================= */
+.about-modal-title { font-size: 2em; margin-bottom: 18px; color: #2d3e50; }
+.about-modal-subtitle { color: #2d3e50; font-size: 1.3em; margin-top: 20px; margin-bottom: 10px; }
+.about-modal-paragraph { font-size: 1.15em; color: #333; margin-bottom: 18px; text-align: justify; }
+.about-list { font-size: 1.13em; color: #222; margin-bottom: 18px; text-align: left; padding-left: 20px; }
+.about-areas-intro { font-size: 1.13em; color: #222; margin-bottom: 10px; }
+.about-quote { font-size: 1.08em; color: #444; border-left: 4px solid #4e73df; margin: 18px 0; padding-left: 16px; background: #f7f7fa; border-radius: 4px; }
+.about-remark { font-size: 1.13em; color: #222; margin-bottom: 18px; font-weight: bold; text-align: center; }
