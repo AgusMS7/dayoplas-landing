@@ -191,38 +191,31 @@ require_once 'conexion.php';
                     <p>"Una institución pensada para quienes desean destacarse en el mundo de la estética, la podología y el bienestar."<br />"Educación de calidad con salida laboral real."</p>
                 </header>
             </div>
-            <!-- Menú de navegación principal -->
-            <nav id="nav">
-                <ul>
-                    <li><a href="index.php">INICIO</a></li>
-                    <li><a href="#" onclick="abrirModalNosotros(); return false;">NOSOTROS</a></li>
-                    <li><a href="contacto.php" class="active">CONTACTO</a></li>
-                </ul>
-            </nav>
+            <?php include('partials/menu_cursos.php'); ?>
         </div>
-        <!-- Sección principal de contacto -->
-        <section id="contacto" class="contact-section">
+        <!-- Sección principal de contacto (portada desde versión OLD) -->
+        <section id="contacto" style="padding: 60px 0; background: #f7f7f7; text-align: center; position: relative; min-height: 340px;">
             <!-- Título de la sección -->
-            <h2 class="contact-title">Contacto</h2>
-            
+            <h2 style="font-size:2em; margin-bottom: 18px; color:#222;">Contacto</h2>
+
             <!-- Enlace directo a WhatsApp Business -->
-            <a href="https://api.whatsapp.com/send?phone=5492613433032" target="_blank" class="contact-whatsapp-link">
-                <img src="images/iconos/wat.png" alt="WhatsApp" class="whatsapp-icon-large">
-                <span class="contact-whatsapp-text">Contactar por WhatsApp</span>
+            <a href="https://api.whatsapp.com/send?phone=5492613433032" target="_blank" style="display: inline-block; margin: 16px 0; text-decoration: none;">
+                <img src="images/iconos/wat.png" alt="WhatsApp" style="height: 54px; vertical-align: middle; margin-right: 10px;">
+                <span style="font-size: 1.15em; color: #25d366; font-weight: bold; vertical-align: middle;">Contactar por WhatsApp</span>
             </a>
-            
+
             <!-- Dirección física de la institución -->
-            <div class="contact-address">
+            <div style="margin: 0 auto 18px auto; text-align:center; font-size:1.15em; color:#2d3e50; font-weight:bold;">
                 Rioja 867, Ciudad de Mendoza, Argentina
             </div>
-            
+
             <!-- Mapa integrado de Google Maps -->
-            <div class="contact-map-wrapper">
-                <iframe src="https://www.google.com/maps?q=Rioja+867,+Ciudad+de+Mendoza,+Argentina&output=embed" width="100%" height="260" class="contact-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div style="margin: 24px auto; max-width: 420px;">
+                <iframe src="https://www.google.com/maps?q=Rioja+867,+Ciudad+de+Mendoza,+Argentina&output=embed" width="100%" height="260" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            
+
             <!-- Número de teléfono posicionado en esquina superior derecha -->
-            <span class="contact-phone-badge">Teléfono: +54 9 2613 43-3032</span>
+            <span style="position:absolute; top:18px; right:32px; color:#111; font-weight:bold; font-size:1.15em; background:#f7f7f7; padding:4px 12px; border-radius:12px;">Teléfono: +54 9 2613 43-3032</span>
         </section>
         <!-- Pie de página -->
         <div id="footer">

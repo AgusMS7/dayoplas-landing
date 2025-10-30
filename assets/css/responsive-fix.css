@@ -20,20 +20,22 @@ html, body {
 ======================================== */
 @media screen and (max-width: 768px) {
     #header {
-        min-height: 100vh !important;
-        padding: 50px 0 20px 0 !important; /* Reducido el padding-top */
+        min-height: 65vh !important;
+        padding: 60px 0 20px 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        max-height: none !important;
     }
-    
+
     #header .inner {
         width: 100% !important;
         max-width: 100% !important;
         padding: 20px !important;
         text-align: center !important;
+        margin-top: 20px !important;
     }
-    
+
     #header .inner header {
         width: 100% !important;
         max-width: 100% !important;
@@ -102,8 +104,20 @@ html, body {
    2. NAVEGACIÓN RESPONSIVE - MENÚ MÓVIL NATIVO
 ======================================== */
 
-/* Ocultar navegación desktop en móvil */
-@media screen and (max-width: 960px) {
+/* Ocultar el botón hamburguesa en desktop */
+@media screen and (min-width: 960px) {
+    #navButton {
+        display: none !important;
+    }
+
+    #navPanel {
+        display: none !important;
+    }
+}
+
+/* El nav desktop se oculta con JavaScript en móvil */
+/* Los estilos CSS para ocultarlo son respaldos */
+@media screen and (max-width: 959px) {
     #nav {
         display: none !important;
     }
@@ -115,6 +129,7 @@ html, body {
 @media screen and (max-width: 960px) {
     /* Estilo para el botón hamburguesa generado por JS */
     #navButton {
+        display: block !important;
         height: 44px !important;
         z-index: 10001 !important;
     }
@@ -136,51 +151,93 @@ html, body {
     
     /* Panel de navegación móvil mejorado */
     #navPanel {
-        background: linear-gradient(135deg, rgba(26, 79, 255, 0.98) 0%, rgba(74, 144, 226, 0.98) 100%) !important;
-        backdrop-filter: blur(20px) !important;
+        display: block !important;
+        background: linear-gradient(135deg, rgba(26, 79, 255, 0.95) 0%, rgba(74, 144, 226, 0.95) 100%) !important;
     }
-    
+
     #navPanel:before {
-        background: none !important;
-        background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%) !important;
-        background-size: 100px 100px !important;
+        display: none !important;
     }
     
     /* Enlaces del menú móvil mejorados */
     #navPanel .link {
-        padding: 18px 25px !important;
-        margin: 5px 15px !important;
-        border-radius: 12px !important;
+        padding: 15px 20px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
         border: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        transition: all 0.3s ease !important;
-        font-size: 1.1em !important;
-        font-weight: 500 !important;
-        color: rgba(255, 255, 255, 0.9) !important;
+        border-left: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        transition: background 0.3s ease !important;
+        font-size: 1em !important;
+        font-weight: 400 !important;
+        color: rgba(255, 255, 255, 0.85) !important;
+        display: block !important;
+        text-decoration: none !important;
     }
-    
+
     #navPanel .link:hover {
-        background: rgba(255, 255, 255, 0.15) !important;
-        transform: translateX(10px) !important;
+        background: rgba(255, 255, 255, 0.12) !important;
         color: #fff !important;
+        transform: none !important;
     }
-    
+
     /* Enlaces principales (depth-0) */
     #navPanel .link.depth-0 {
         color: #fff !important;
         font-weight: 600 !important;
-        font-size: 1.2em !important;
-        margin: 8px 15px !important;
-        padding: 20px 25px !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        border-left: 4px solid rgba(255, 255, 255, 0.8) !important;
+        font-size: 1.1em !important;
+        margin: 0 !important;
+        padding: 18px 20px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-left: 4px solid #1a4fff !important;
+        border-radius: 0 !important;
     }
-    
+
     #navPanel .link.depth-0:hover {
-        background: rgba(255, 255, 255, 0.2) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
         border-left-color: #fff !important;
     }
-    
+
+    /* Submenús (depth-1 y superiores) */
+    #navPanel .link.depth-1 {
+        padding-left: 50px !important;
+        font-size: 0.95em !important;
+        background: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    #navPanel .link.depth-2 {
+        padding-left: 70px !important;
+        font-size: 0.9em !important;
+        background: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    #navPanel .link.depth-3 {
+        padding-left: 90px !important;
+        font-size: 0.85em !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Indents (espaciadores para submenús) */
+    #navPanel .indent-1 {
+        display: none !important;
+    }
+
+    #navPanel .indent-2 {
+        display: none !important;
+    }
+
+    #navPanel .indent-3 {
+        display: none !important;
+    }
+
+    #navPanel .indent-4 {
+        display: none !important;
+    }
+
+    #navPanel .indent-5 {
+        display: none !important;
+    }
+
     /* Scrollbar personalizado */
     #navPanel::-webkit-scrollbar {
         width: 6px;
@@ -202,15 +259,33 @@ html, body {
 ======================================== */
 @media screen and (max-width: 480px) {
     #navPanel .link {
-        padding: 16px 20px !important;
-        margin: 4px 10px !important;
+        padding: 12px 15px !important;
+        margin: 0 !important;
+        font-size: 0.9em !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    #navPanel .link.depth-0 {
+        padding: 14px 15px !important;
+        margin: 0 !important;
         font-size: 1em !important;
     }
-    
-    #navPanel .link.depth-0 {
-        padding: 18px 20px !important;
-        margin: 6px 10px !important;
-        font-size: 1.1em !important;
+
+    #navPanel .link.depth-1 {
+        padding-left: 40px !important;
+    }
+
+    #navPanel .link.depth-2 {
+        padding-left: 60px !important;
+    }
+
+    #navPanel .link.depth-3 {
+        padding-left: 80px !important;
+    }
+
+    #navButton .toggle:before {
+        font-size: 13px !important;
+        width: 70px !important;
     }
 }
 
@@ -220,125 +295,49 @@ html, body {
 @media screen and (max-width: 768px) {
     .carousel {
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 10px 0 !important;
         overflow: visible !important;
         position: relative !important;
+        width: 100% !important;
     }
-    
+
     /* Carousel horizontal en móvil con scroll */
     .carousel .reel {
         display: flex !important;
         overflow-x: auto !important;
         overflow-y: hidden !important;
-        padding: 20px 15px !important;
-        gap: 15px !important;
+        padding: 10px 12px !important;
+        gap: 12px !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important; /* Firefox */
-        -ms-overflow-style: none !important; /* Internet Explorer 10+ */
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
-    
+
     /* Ocultar scrollbar en webkit */
     .carousel .reel::-webkit-scrollbar {
         display: none !important;
     }
-    
+
     .carousel .reel article {
-        flex: 0 0 280px !important;
-        width: 280px !important;
-        min-width: 280px !important;
-        max-width: 280px !important;
+        flex: 0 0 270px !important;
+        width: 270px !important;
+        min-width: 270px !important;
+        max-width: 270px !important;
         scroll-snap-align: start !important;
         background: white !important;
         border-radius: 15px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
         margin: 0 !important;
         padding: 0 !important;
     }
     
-    /* Controles de navegación móvil restaurados */
-    /* Controles de navegación móvil - ESTILO ORIGINAL DESKTOP */
-    .carousel .forward, 
+    /* Controles de navegación móvil - Ocultos en pantallas muy pequeñas */
+    .carousel .forward,
     .carousel .backward {
-        display: block !important;
-        position: absolute !important;
-        top: 50% !important;
-        width: 6em !important;
-        height: 12em !important;
-        margin-top: -6em !important;
-        z-index: 10 !important;
-        cursor: pointer !important;
-    }
-    
-    /* Botón siguiente (forward) - IGUAL QUE DESKTOP */
-    .carousel .forward {
-        right: 0 !important;
-    }
-    
-    .carousel .forward:before {
-        content: '' !important;
-        display: block !important;
-        width: 6em !important;
-        height: 6em !important;
-        border-radius: 100% !important;
-        background-color: rgba(72, 57, 73, 0.5) !important;
-        position: absolute !important;
-        top: 50% !important;
-        right: -3em !important;
-        margin-top: -3em !important;
-        transition: background-color 0.35s ease-in-out !important;
-        backface-visibility: hidden !important;
-    }
-    
-    .carousel .forward:after {
-        content: '' !important;
-        width: 3em !important;
-        height: 3em !important;
-        position: absolute !important;
-        top: 50% !important;
-        right: -0.25em !important;
-        margin: -1.5em 0 0 0 !important;
-        background: url("images/arrow.svg") no-repeat center center !important;
-    }
-    
-    .carousel .forward:hover:before {
-        background-color: rgba(239, 131, 118, 0.75) !important;
-    }
-    
-    /* Botón anterior (backward) - IGUAL QUE DESKTOP */
-    .carousel .backward {
-        left: 0 !important;
-    }
-    
-    .carousel .backward:before {
-        content: '' !important;
-        display: block !important;
-        width: 6em !important;
-        height: 6em !important;
-        border-radius: 100% !important;
-        background-color: rgba(72, 57, 73, 0.5) !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: -3em !important;
-        margin-top: -3em !important;
-        transition: background-color 0.35s ease-in-out !important;
-        backface-visibility: hidden !important;
-    }
-    
-    .carousel .backward:after {
-        content: '' !important;
-        width: 3em !important;
-        height: 3em !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: -0.25em !important;
-        margin: -1.5em 0 0 0 !important;
-        background: url("images/arrow.svg") no-repeat center center !important;
-        transform: scaleX(-1) !important;
-    }
-    
-    .carousel .backward:hover:before {
-        background-color: rgba(239, 131, 118, 0.75) !important;
+        display: none !important;
     }
     
     /* Artículos del carousel */
@@ -471,17 +470,30 @@ html, body {
 ======================================== */
 @media screen and (max-width: 768px) {
     .wrapper {
-        padding: 20px 0 !important;
+        padding: 15px 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
     }
-    
+
+    .wrapper.style1, .wrapper.style2, .wrapper.style3 {
+        padding: 15px 0 !important;
+    }
+
     .container {
-        padding: 0 20px !important;
+        padding: 0 15px !important;
         max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
     }
-    
+
     /* Formaciones responsive */
     .formacion-section {
-        padding: 20px 0 !important;
+        padding: 15px 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
     }
     
     .formacion-header img {
@@ -536,11 +548,15 @@ html, body {
     #formConsulta textarea {
         width: 100% !important;
         padding: 15px !important;
-        font-size: 16px !important; /* Evita zoom en iOS */
+        font-size: 16px !important;
         border: 2px solid #e1e5e9 !important;
         border-radius: 12px !important;
         transition: border-color 0.3s ease !important;
         background: #fff !important;
+        box-sizing: border-box !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
     }
     
     #formConsulta input:focus,
@@ -593,35 +609,71 @@ html, body {
 }
 
 /* ========================================
-   6. PANTALLAS MUY PEQUEÑAS (320px)
+   6. PANTALLAS MUY PEQUEÑAS (320px - 480px)
 ======================================== */
 @media screen and (max-width: 480px) {
     #header .inner header h1 {
-        font-size: 1.5em !important;
-        padding: 0 10px !important;
+        font-size: 1.4em !important;
+        padding: 0 8px !important;
+        margin-bottom: 0.5rem !important;
     }
-    
+
     #header .inner header p {
-        font-size: 0.9em !important;
-        padding: 0 15px !important;
+        font-size: 0.85em !important;
+        padding: 0 12px !important;
+        margin: 0.8rem 0 !important;
     }
-    
+
     .logo {
-        width: 80px !important;
+        width: 75px !important;
+        max-height: 75px !important;
     }
-    
+
     .carousel .reel article {
-        flex: 0 0 250px !important;
-        width: 250px !important;
-        min-width: 250px !important;
+        flex: 0 0 240px !important;
+        width: 240px !important;
+        min-width: 240px !important;
     }
-    
+
+    .carousel .reel {
+        padding: 0 10px !important;
+        gap: 12px !important;
+    }
+
     .formacion-header img {
-        height: 200px !important;
+        height: 180px !important;
     }
-    
+
+    .formacion-header h2 {
+        font-size: 1.4em !important;
+        padding: 0 8px !important;
+    }
+
     .container {
+        padding: 0 12px !important;
+    }
+
+    #features article {
+        margin-bottom: 20px !important;
         padding: 0 15px !important;
+    }
+
+    .contact, .copyright {
+        padding: 15px 10px !important;
+    }
+
+    .logo-pdf-container {
+        max-width: 260px !important;
+    }
+
+    #formConsulta {
+        padding: 1.2rem !important;
+        margin: 15px 8px !important;
+    }
+
+    .boton-principal {
+        font-size: 0.9em !important;
+        padding: 10px 20px !important;
     }
 }
 
@@ -679,12 +731,78 @@ html, body {
    9. CORRECCIONES ESPECÍFICAS FOOTER MÓVIL
 ======================================== */
 
+/* Logos PDF responsive - Stacking en móvil */
+@media screen and (max-width: 768px) {
+    .pdf-logos-section {
+        display: block !important;
+        text-align: center !important;
+        padding: 20px 15px !important;
+        margin: 20px 0 !important;
+    }
+
+    .pdf-logos-instruction {
+        margin-bottom: 20px !important;
+        font-size: 0.95em !important;
+    }
+
+    .logo-pdf-container {
+        display: block !important;
+        margin: 20px auto !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 0 10px !important;
+        text-align: center !important;
+    }
+
+    .logo-pdf-left,
+    .logo-pdf-right {
+        margin: 0 !important;
+        margin-bottom: 14px !important;
+        padding: 6px !important;
+        background: transparent !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .logo-mirabai,
+    .logo-libra {
+        max-width: 140px !important;
+        height: auto !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+    }
+
+    .pdf-links {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+    }
+
+    .pdf-link {
+        font-size: 0.9em !important;
+        padding: 4px 8px !important;
+        border-radius: 6px !important;
+        background: transparent !important;
+        margin: 0 !important;
+        color: #eaf6ff !important;
+        text-decoration: underline !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
+
 /* ========================================
    A. CLASES PARA REEMPLAZAR ESTILOS EN LÍNEA
 ======================================== */
 /* Header title link */
 .title-link {
   color: #000;
+  word-break: break-word;
 }
 
 /* Header subtitle text */
@@ -693,6 +811,58 @@ html, body {
   font-weight: bold;
   font-size: 1.18em;
   text-shadow: 0 1px 2px #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevenir overflow horizontal en todo el sitio */
+html, body {
+  width: 100%;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  max-width: 100%;
+}
+
+/* Mejorar tipografía en móvil */
+@media screen and (max-width: 768px) {
+  p {
+    text-align: left !important;
+    padding: 0 5px !important;
+    margin: 0 auto !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    padding: 0 10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  section, .section, .wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Prevenir overflow en cualquier elemento */
+  * {
+    box-sizing: border-box !important;
+  }
+
+  body, html {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #page-wrapper {
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
 }
 
 /* CTA buttons inside carousel */
@@ -722,8 +892,35 @@ html, body {
 .consultation-form { background: #fff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 #formConsulta input, #formConsulta select, #formConsulta textarea { border: 2px solid #e9ecef; border-radius: 8px; padding: 1rem; font-size: 1rem; transition: border-color 0.3s; }
 .submit-row.center-align { text-align: center; margin-top: 1rem; }
-.whatsapp-submit { background: linear-gradient(45deg, #25d366, #128c7e); color: #fff; border: none; border-radius: 50px; padding: 1rem 3rem; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-.whatsapp-icon { height: 24px; vertical-align: middle; margin-right: 10px; }
+.whatsapp-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #25d366, #128c7e);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 12px rgba(37,211,102,0.2);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.whatsapp-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(37,211,102,0.18); }
+
+.whatsapp-icon { height: 18px; width: 18px; vertical-align: middle; margin: 0; }
+
+@media screen and (max-width: 768px) {
+  .whatsapp-submit { padding: 8px 10px; font-size: 0.88rem; }
+  .whatsapp-icon { height: 16px; width: 16px; }
+}
 
 /* Contact section */
 .contact-section { display: none; padding: 60px 0; background: #f7f7f7; text-align: center; position: relative; min-height: 340px; transition: all 0.3s ease-in-out; }
@@ -744,129 +941,13 @@ html, body {
   .consultation-form { padding: 1.5rem; }
   .contact-map { height: 200px; }
 }
-@media screen and (max-width: 768px) {
-    /* Footer principal responsive */
-    #footer {
-        padding: 20px 0 !important;
-    }
-
-    #footer .container {
-        padding: 0 15px !important;
-    }
-
-    /* Sección de contacto reorganizada */
-    .contact {
-        text-align: center !important;
-        padding: 20px 0 !important;
-    }
-
-    .contact h2 {
-        font-size: 1.5em !important;
-        margin-bottom: 15px !important;
-    }
-
-    .contact p {
-        font-size: 1em !important;
-        margin-bottom: 20px !important;
-    }
-
-    /* WhatsApp animado del footer */
-    .whatsapp-animado {
-        height: 45px !important;
-        width: auto !important;
-    }
-
-    /* Copyright y elementos finales */
-    .copyright {
-        text-align: center !important;
-        padding: 20px 15px !important;
-        position: relative !important;
-    }
-
-    /* Reorganizar elementos del copyright */
-    .copyright > * {
-        position: relative !important;
-        margin: 10px auto !important;
-    }
-
-    /* Botón admin (tuerca) centrado */
-    .btn-login-footer.icono-tuerca {
-        position: relative !important;
-        left: auto !important;
-        bottom: auto !important;
-        display: block !important;
-        margin: 15px auto !important;
-        text-align: center !important;
-        width: 40px !important;
-        height: 40px !important;
-    }
-
-    /* PDF logos contenedor responsive */
-    .logo-pdf-container {
-        display: block !important;
-        margin: 20px auto !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-
-    .logo-pdf-container img {
-        max-height: 60px !important;
-        width: auto !important;
-    }
-
-    /* Footer final responsive */
-    #footer footer {
-        padding: 15px !important;
-        font-size: 0.9em !important;
-        line-height: 1.4 !important;
-    }
-}
+/* Footer responsive: Ver archivo footer-responsive.css para estilos específicos del footer */
 
 /* ========================================
    10. BASE/UTILIDADES (DESKTOP Y GENERAL)
 ======================================== */
 /* Enlace verde para Panel CRUD del admin */
 .admin-crud-link { color: #4CAF50; font-weight: bold; }
-
-/* Posicionamiento por defecto del contenedor de copyright */
-.copyright { position: relative; }
-
-/* Botón contenedor de WhatsApp en footer */
-.botton { padding: 6px 18px; background: #2b252c; border-radius: 25px; display: inline-block; }
-
-/* Icono de WhatsApp del footer (tamaño base) */
-.whatsapp-animado { height: 54px; vertical-align: middle; }
-
-/* Botones flotantes del footer (desktop) */
-#btn-consultar-ahora,
-#btn-volver-inicio {
-  position: absolute; right: 32px; left: auto; color: #fff; border: none; border-radius: 20px; padding: 10px 22px; font-size: 1em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.18); transition: background 0.3s, color 0.3s, transform 0.2s; z-index: 10;
-}
-#btn-consultar-ahora { bottom: 70px; background: linear-gradient(90deg, #2d3e50 60%, #4e73df 100%); }
-#btn-volver-inicio { bottom: 18px; background: linear-gradient(90deg, #2d3e50 60%, #4e73df 100%); }
-
-/* Contenedor de botones móviles oculto por defecto */
-.mobile-buttons-container { display: none; }
-
-/* Botones móviles del footer (estilo base) */
-#btn-consultar-ahora-mobile,
-#btn-volver-inicio-mobile {
-  background: linear-gradient(90deg, #2d3e50 60%, #4e73df 100%); color: #fff; border: none; border-radius: 20px; padding: 12px 22px; font-size: 1em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.18); transition: background 0.3s, color 0.3s, transform 0.2s; margin: 10px auto; display: block; width: 100%; max-width: 300px;
-}
-
-/* Enlaces PDF del footer */
-.pdf-logos-section { text-align: center; margin: 24px 0 44px 0; }
-.pdf-logos-instruction { font-size: 1.13em; color: #cdd9e7ff; font-weight: 500; margin-bottom: 10px; text-align: center; }
-.logo-pdf-container { display: inline-block; text-align: center; position: relative; }
-.logo-pdf-left { margin-right: 32px; }
-.logo-pdf-right { margin-left: 32px; }
-.logo-mirabai { height: 92px; margin-bottom: 6px; vertical-align: middle; }
-.logo-libra { height: 72px; margin-bottom: 6px; vertical-align: middle; }
-.pdf-links { margin-top: 4px; position: static; display: block; background: none; box-shadow: none; padding: 0; }
-.pdf-link { color: #4e73df; font-size: 0.98em; text-decoration: underline; }
-
-/* Pie final del sitio */
-.site-footer-bottom { width: 100%; text-align: center; padding: 18px 0 12px 0; background: none; color: #444; font-size: 1em; letter-spacing: 0.01em; }
 
 /* Login: etiqueta mostrar contraseña */
 .toggle-pass-label { margin: 0; cursor: pointer; }
@@ -876,3 +957,61 @@ html, body {
 
 /* Detalle: ajuste de márgenes del footer en página de detalle */
 .page-detail-footer-offset { margin-top: 30px; margin-bottom: -140px !important; }
+
+/* ========================================
+   11. FIX: Ocultar menú bajo el footer en móvil y asegurar navPanel oculto cuando está cerrado
+======================================== */
+@media screen and (max-width: 960px) {
+  /* Ocultar cualquier lista de menú genérica dentro o inmediatamente después del footer en móvil */
+  #footer .menu, #footer + .menu, #footer ~ .menu, .footer-menu { display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+  /* Asegurar que el panel móvil no se vea ni interactúe cuando está cerrado */
+  body:not(.navPanel-visible) #navPanel { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transform: translateY(-50vh) !important; }
+  body.navPanel-visible #navPanel { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+  /* Forzar que el footer sea el último bloque visible */
+  #footer { clear: both !important; }
+}
+
+/* Mobile-specific: remove carousel arrow controls and unify swipe hint */
+@media screen and (max-width: 768px), (hover: none) and (pointer: coarse) {
+  /* Hide arrow controls injected by JS */
+  .carousel .forward, .carousel .backward { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+  .carousel .forward:before, .carousel .backward:before, .carousel .forward:after, .carousel .backward:after { display: none !important; }
+
+  /* Hide index.php inline ::after hint when we set body.mobile-no-carousel-after */
+  body.mobile-no-carousel-after .carousel::after { display: none !important; }
+  /* Hide any JS-inserted scroll-indicator elements to avoid duplicates */
+  .scroll-indicator { display: none !important; }
+  body.mobile-no-carousel-after .scroll-indicator { display: none !important; }
+  body.mobile-no-carousel-after .carousel .forward, body.mobile-no-carousel-after .carousel .backward, body.mobile-no-carousel-after .carousel .forward:before, body.mobile-no-carousel-after .carousel .backward:before, body.mobile-no-carousel-after .carousel .forward:after, body.mobile-no-carousel-after .carousel .backward:after { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+
+  /* Ensure only one swipe hint: prefer ::before (configured elsewhere) */
+  .carousel::after { display: none !important; }
+
+  /* Provide a single clear swipe hint centered */
+  .carousel::before {
+    content: "👆 Desliza para ver más" !important;
+    position: absolute !important;
+    top: -28px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 12px !important;
+    color: rgba(26,79,255,0.95) !important;
+    background: rgba(255,255,255,0.95) !important;
+    padding: 6px 10px !important;
+    border-radius: 12px !important;
+    z-index: 12 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+    pointer-events: none !important;
+  }
+
+  /* Hide desktop-positioned footer buttons in mobile */
+  #btn-consultar-ahora, #btn-volver-inicio { display: none !important; }
+}
+
+/* Extra safety for very small screens */
+@media screen and (max-width: 480px) {
+  .carousel::before { font-size: 11px !important; top: -22px !important; }
+}
+
+/* As an override for desktop hover showing arrows, ensure hover doesn't force display */
+.carousel .forward:hover:before, .carousel .backward:hover:before { background-color: rgba(72,57,73,0.5) !important; }

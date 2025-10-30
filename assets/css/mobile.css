@@ -1,173 +1,20 @@
 /*
 	MOBILE.CSS - Estilos responsive específicos para dispositivos móviles
 	Dayloplas-IPM-MZA Website
+	
+	NOTA: El menú móvil es manejado por main.js (#navPanel)
+	El footer está optimizado en footer-responsive.css
 */
 
 /* ========================================
-   NAVEGACIÓN MÓVIL Y MENÚ HAMBURGUESA
+   NAVEGACIÓN MÓVIL - Sistema unificado via main.js
 ======================================== */
 
-.mobile-menu-toggle {
-	display: none;
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	z-index: 9999;
-	background: rgba(26, 79, 255, 0.95);
-	border: none;
-	border-radius: 8px;
-	padding: 12px;
-	cursor: pointer;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-	backdrop-filter: blur(10px);
-	transition: all 0.3s ease;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 960px) {
 	#nav {
 		display: none !important;
+		visibility: hidden !important;
 	}
-	.mobile-menu-toggle {
-		display: block !important;
-	}
-	.mobile-nav {
-		display: none;
-	}
-	.mobile-nav.active {
-		display: block;
-		transform: translateY(0);
-		box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-		border-radius: 0 0 18px 18px;
-	}
-}
-
-.mobile-menu-toggle:hover {
-	background: rgba(26, 79, 255, 1);
-	transform: scale(1.05);
-}
-
-.hamburger {
-	width: 24px;
-	height: 18px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.hamburger span {
-	width: 100%;
-	height: 2px;
-	background: white;
-	border-radius: 2px;
-	transition: all 0.3s ease;
-	transform-origin: center;
-}
-
-/* Animación del hamburger */
-.mobile-menu-toggle.active .hamburger span:nth-child(1) {
-	transform: rotate(45deg) translate(6px, 6px);
-}
-
-.mobile-menu-toggle.active .hamburger span:nth-child(2) {
-	opacity: 0;
-}
-
-.mobile-menu-toggle.active .hamburger span:nth-child(3) {
-	transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Menú móvil desplegable */
-.mobile-nav {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background: rgba(255, 255, 255, 0.98);
-	backdrop-filter: blur(20px);
-	z-index: 9998;
-	padding: 80px 30px 30px;
-	overflow-y: auto;
-	transition: all 0.4s ease;
-	transform: translateY(-100%);
-}
-
-.mobile-nav.active {
-	display: block;
-	transform: translateY(0);
-}
-
-.mobile-nav ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-.mobile-nav > ul > li {
-	margin-bottom: 15px;
-	border-bottom: 1px solid rgba(26, 79, 255, 0.1);
-	padding-bottom: 15px;
-}
-
-.mobile-nav > ul > li > a {
-	display: block;
-	font-size: 1.4em;
-	font-weight: 600;
-	color: #1a4fff;
-	text-decoration: none;
-	padding: 15px 0;
-	border-radius: 8px;
-	transition: all 0.3s ease;
-}
-
-.mobile-nav > ul > li > a:hover {
-	background: rgba(26, 79, 255, 0.1);
-	padding-left: 20px;
-}
-
-/* Submenús móviles */
-.mobile-nav ul ul {
-	display: none;
-	padding-left: 20px;
-	margin-top: 10px;
-}
-
-.mobile-nav ul ul.active {
-	display: block;
-}
-
-.mobile-nav ul ul li {
-	margin-bottom: 8px;
-}
-
-.mobile-nav ul ul li a {
-	font-size: 1.1em;
-	color: #666;
-	padding: 8px 0;
-	display: block;
-	text-decoration: none;
-	border-radius: 4px;
-	transition: color 0.3s ease;
-}
-
-.mobile-nav ul ul li a:hover {
-	color: #1a4fff;
-	background: rgba(26, 79, 255, 0.05);
-	padding-left: 15px;
-}
-
-/* Indicador de submenú */
-.mobile-nav .has-submenu > a::after {
-	content: '+';
-	float: right;
-	font-size: 1.2em;
-	transition: transform 0.3s ease;
-}
-
-.mobile-nav .has-submenu.active > a::after {
-	transform: rotate(45deg);
 }
 
 /* ========================================
@@ -192,20 +39,6 @@
 		scroll-snap-align: start;
 		margin-right: 0;
 	}
-	
-	/* Indicador de scroll en móvil */
-	.carousel::before {
-		content: "👈 Desliza para ver más";
-		position: absolute;
-		top: -10px;
-		right: 20px;
-		font-size: 12px;
-		color: #666;
-		background: rgba(255,255,255,0.9);
-		padding: 4px 10px;
-		border-radius: 15px;
-		z-index: 5;
-	}
 }
 
 /* ========================================
@@ -225,7 +58,7 @@
 	
 	#formConsulta input,
 	#formConsulta textarea {
-		font-size: 16px !important; /* Evita zoom en iOS */
+		font-size: 16px !important;
 		padding: 12px !important;
 	}
 	
@@ -241,7 +74,6 @@
 ======================================== */
 
 @media screen and (max-width: 768px) {
-	/* Títulos principales */
 	#header .inner header h1 {
 		font-size: 1.8em !important;
 		line-height: 1.2;
@@ -254,20 +86,17 @@
 		padding: 0 15px;
 	}
 	
-	/* Títulos de sección */
 	.formacion-header h2 {
 		font-size: 2em !important;
 		margin-bottom: 1rem;
 	}
 	
-	/* Descripción de cursos */
 	.descripcion-cursos {
 		font-size: 1em !important;
 		padding: 0 15px;
 		margin-bottom: 1.5em;
 	}
 	
-	/* Texto del carrusel */
 	.carousel .reel article h3 {
 		font-size: 1.1em !important;
 		margin: 15px 10px 10px;
@@ -285,7 +114,6 @@
 ======================================== */
 
 @media screen and (max-width: 768px) {
-	/* Header más compacto */
 	#header {
 		min-height: 60vh !important;
 		padding: 20px 0;
@@ -295,7 +123,6 @@
 		padding: 20px 15px;
 	}
 	
-	/* Logos más pequeños */
 	.logo-container {
 		flex-direction: column;
 		gap: 10px;
@@ -307,7 +134,6 @@
 		height: auto;
 	}
 	
-	/* Secciones más compactas */
 	.formacion-section {
 		padding: 2rem 1rem !important;
 	}
@@ -317,7 +143,6 @@
 		margin-bottom: 2rem;
 	}
 	
-	/* Espaciado del wrapper */
 	.wrapper.style1 {
 		padding: 3rem 0 !important;
 	}
@@ -326,7 +151,6 @@
 		padding: 0 15px;
 	}
 	
-	/* Grid responsive para features */
 	#features .row .col-4 {
 		width: 100% !important;
 		margin-bottom: 2rem;
@@ -342,37 +166,20 @@
 ======================================== */
 
 @media screen and (max-width: 768px) {
-	/* Imágenes de cabecera */
 	.formacion-header img {
 		height: 250px !important;
 		margin: 0 auto 1rem auto !important;
 	}
 	
-	/* Imágenes del carousel */
 	.carousel .reel article img {
 		height: 180px !important;
 		min-height: 180px !important;
 		max-height: 180px !important;
 	}
 	
-	/* Imágenes de features */
 	#img_features {
 		height: 200px !important;
 		margin-bottom: 1rem;
-	}
-}
-
-/* ========================================
-   NAVEGACIÓN OCULTA EN MÓVIL
-======================================== */
-
-@media screen and (max-width: 960px) {
-	#nav {
-		display: none !important;
-	}
-	
-	.mobile-menu-toggle {
-		display: block !important;
 	}
 }
 
@@ -410,7 +217,6 @@
 		line-height: 1.6;
 	}
 	
-	/* Mejorar el toque en elementos interactivos */
 	a, button, .button {
 		min-height: 44px;
 		display: inline-flex;
@@ -418,7 +224,6 @@
 		justify-content: center;
 	}
 	
-	/* Prevenir zoom en inputs en iOS */
 	input[type="text"],
 	input[type="tel"],
 	input[type="email"],
@@ -429,7 +234,7 @@
 }
 
 /* ========================================
-   CONTACTO Y FOOTER RESPONSIVE
+   CONTACTO RESPONSIVE
 ======================================== */
 
 @media screen and (max-width: 768px) {
@@ -447,14 +252,6 @@
 		height: 200px !important;
 		margin: 15px auto !important;
 	}
-	
-	#footer {
-		padding: 30px 15px !important;
-	}
-	
-	#footer .container {
-		padding: 0;
-	}
 }
 
 /* ========================================
@@ -462,26 +259,9 @@
 ======================================== */
 
 @media screen and (max-width: 768px) {
-	/* Reducir animaciones en dispositivos móviles */
 	*, *::before, *::after {
 		animation-duration: 0.3s !important;
 		transition-duration: 0.3s !important;
-	}
-	
-	/* Animación de entrada del menú móvil */
-	.mobile-nav {
-		animation: slideInFromTop 0.4s ease-out;
-	}
-	
-	@keyframes slideInFromTop {
-		0% {
-			transform: translateY(-100%);
-			opacity: 0;
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
 	}
 }
 
@@ -507,6 +287,20 @@
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 	}
+
+	body {
+		padding: 0 !important;
+	}
+
+	.wrapper {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	html, body {
+		width: 100% !important;
+		overflow-x: hidden !important;
+	}
 }
 
 @media screen and (min-width: 769px) {
@@ -520,28 +314,17 @@
 ======================================== */
 
 @media screen and (max-width: 768px) {
-	/* Optimizar scroll del carousel */
 	.carousel .reel {
 		-webkit-overflow-scrolling: touch;
 		overscroll-behavior-x: contain;
 	}
 	
-	/* Reducir efectos pesados en móvil */
 	.carousel .reel article:hover {
 		transform: none !important;
 		transition: none !important;
 	}
 	
-	/* Simplificar sombras en móvil */
 	.carousel .reel article {
 		box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-	}
-	
-	/* Optimizar backdrop-filter para mejor rendimiento */
-	.mobile-menu-toggle,
-	.mobile-nav {
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
-		will-change: transform;
 	}
 }

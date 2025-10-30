@@ -17,7 +17,13 @@
     background-attachment: fixed;
     transition: background 1.5s ease-in-out;
     position: relative;
-    min-height: 70vh;
+    min-height: auto; /* Ajustable por contenido por defecto */
+    padding: 3rem 0; /* Espacio obvio alrededor del contenido */
+}
+
+/* Mantener altura grande en la página de inicio */
+body.homepage .header-gradientes {
+    min-height: 75vh;
 }
 
 /* Overlay sutil para mejor legibilidad del texto */
@@ -127,20 +133,21 @@
    ========================================== */
 
 @media screen and (max-width: 736px) {
-    .header-gradientes {
+    /* En móvil, mantener la altura grande solo en la portada */
+    body.homepage .header-gradientes {
         min-height: 60vh;
     }
-    
+
     .header-gradientes .logo-container {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .header-gradientes .logo {
         width: 120px;
     }
-    
-    .header-gradientes h1, 
+
+    .header-gradientes h1,
     .header-gradientes .inner header h1 {
         font-size: 1.8em;
     }

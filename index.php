@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="assets/css/naty.css" />
 	<link rel="stylesheet" href="assets/css/mobile.css" />
 	<link rel="stylesheet" href="assets/css/responsive-fix.css" />
+	<link rel="stylesheet" href="assets/css/footer-responsive.css" />
 	<?php if (!isset($_GET['tipo']) || $_GET['tipo'] !== 'curso'): ?>
 	<link rel="stylesheet" href="assets/css/carousel-center.css" />
 	<?php endif; ?>
@@ -226,7 +227,7 @@
 						box-shadow: 0 10px 25px rgba(135, 206, 235, 0.3) !important;
 					}
 					
-					/* 📱 ESTILOS ESPECÍFICOS PARA DISPOSITIVOS TÁCTILES */
+					/* ��� ESTILOS ESPECÍFICOS PARA DISPOSITIVOS TÁCTILES */
 					@media (hover: none) and (pointer: coarse) {
 						.carousel .reel article {
 							width: 280px !important; /* Más pequeño en móvil */
@@ -712,7 +713,7 @@
 									<div class="col-12" class="submit-row center-align">
 										<button type="submit" class="button primary large whatsapp-submit">
 											<img src="images/iconos/wat.png" alt="WhatsApp" class="whatsapp-icon">
-											Enviar consulta por WhatsApp
+											Enviar por WhatsApp
 										</button>
 									</div>
 								</div>
@@ -869,7 +870,7 @@
 								'scroll-behavior': 'smooth'
 							});
 							
-							console.log('🎠 Carousel ' + $carousel.attr('class') + ' inicializado solo con scroll');
+							console.log('�� Carousel ' + $carousel.attr('class') + ' inicializado solo con scroll');
 						});
 					}, 500);
 				});

@@ -35,12 +35,32 @@
 			}, 100);
 		});
 
-	// Dropdowns.
-		$('#nav > ul').dropotron({
-			mode: 'fade',
-			speed: 350,
-			noOpenerFade: true,
-			alignment: 'center'
+	// Dropdowns - Only on desktop (>= 960px)
+		var setupNav = function() {
+			var isDesktop = $window.width() >= 960;
+
+			if (isDesktop) {
+				$('#nav').show();
+				// Solo inicializar dropotron si aún no está inicializado
+				if ($('#nav > ul').data('dropotron') === undefined) {
+					$('#nav > ul').dropotron({
+						mode: 'fade',
+						speed: 350,
+						noOpenerFade: true,
+						alignment: 'center'
+					});
+				}
+			} else {
+				// En móvil, ocultar completamente el nav desktop
+				$('#nav').hide();
+			}
+		};
+
+		setupNav();
+
+		// Reinitializar cuando se redimensiona la ventana
+		$window.on('resize', function() {
+			setupNav();
 		});
 
 	// Scrolly.

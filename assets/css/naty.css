@@ -1,6 +1,4 @@
-
-            
-            .formacion-section {
+.formacion-section {
 				text-align: center;
 				padding: 4rem 2rem;
 			}
@@ -109,22 +107,27 @@
 			/* Carrusel y Cards */
 			.carousel {
 				width: 100%;
-				padding: 10px; 
-				overflow-x: hidden;
+				padding: 10px 0;
+				overflow: visible;
 				position: relative;
 			}
 
 			.carousel .reel {
 				display: flex;
-				gap: .5rem;
-				padding-left: 1rem;
-				padding-right: 1rem;
+				gap: 15px;
+				padding-left: 15px;
+				padding-right: 15px;
 				overflow-x: auto;
 				scroll-snap-type: x mandatory;
 				scroll-padding: 2rem;
 				margin: 0 auto;
-				/* background-color: #f0f9f1; */
 				box-sizing: border-box;
+				scrollbar-width: none;
+				-ms-overflow-style: none;
+			}
+
+			.carousel .reel::-webkit-scrollbar {
+				display: none;
 			}
 
 			.carousel .reel article {
@@ -156,16 +159,22 @@
 				}
 				
 				.carousel .reel article {
-					flex: 0 0 280px;
+					flex: 0 0 270px;
 					margin-right: 0;
-					min-height: 380px;
+					min-height: 360px;
+					scrollbar-width: none;
+					-ms-overflow-style: none;
 				}
+			}
+
+			.carousel .reel::-webkit-scrollbar {
+				display: none;
 			}
 
 			@media screen and (max-width: 480px) {
 				.carousel .reel article {
-					flex: 0 0 260px;
-					min-height: 360px;
+					flex: 0 0 240px;
+					min-height: 340px;
 				}
 			}
 
@@ -375,36 +384,50 @@
 
 /* Header responsive mejorado */
 @media screen and (max-width: 768px) {
+html, body {
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
 #header {
-min-height: 60vh !important;
-padding: 20px 0;
+    min-height: 55vh !important;
+    max-height: none !important;
+    padding: 25px 0 20px 0 !important;
 }
 
 #header .inner {
-padding: 20px 15px;
+    padding: 20px 15px !important;
+    width: 100% !important;
 }
 
 .logo-container {
-flex-direction: column;
-gap: 10px;
-margin: 1rem auto 0.5rem;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0.5rem auto;
 }
 
 .logo {
-width: 100px !important;
-height: auto;
+    width: 90px !important;
+    height: auto !important;
+    max-height: 90px !important;
 }
 
 #header h1 {
-font-size: 1.8em !important;
-line-height: 1.2;
-margin-bottom: 1rem;
+    font-size: 1.6em !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.8rem !important;
+    padding: 0 10px !important;
 }
 
 #header p {
-font-size: 1em !important;
-line-height: 1.4;
-padding: 0 15px;
+    font-size: 0.95em !important;
+    line-height: 1.35 !important;
+    padding: 0 15px !important;
+    margin: 1rem 0 !important;
+}
+
+#header footer {
+    margin-top: 20px !important;
 }
 }
 
@@ -459,13 +482,27 @@ width: fit-content;
 /* Espaciado mejorado para secciones */
 @media screen and (max-width: 768px) {
 .formacion-section {
-padding: 2rem 1rem !important;
-text-align: center;
+    padding: 1.5rem 0 !important;
+    margin: 0 !important;
+    text-align: center;
+    overflow-x: hidden !important;
 }
 
 .formacion-header {
-padding: 0 1rem;
-margin-bottom: 2rem;
+    padding: 0 15px !important;
+    margin: 0 0 1.5rem 0 !important;
+}
+
+.formacion-header h2 {
+    margin: 0 !important;
+}
+
+.formacion-header p {
+    margin: 1rem 0 !important;
+}
+
+.formacion-header img {
+    margin: 0 auto 1rem auto !important;
 }
 }
 
